@@ -5,11 +5,15 @@ using System.Web;
 
 namespace factory.Models
 {
-    public class shiftDateFormated
+    public class shiftWithEmpList
     {
+ 
         public int ID { get; set; }
-        public string date { get; set; }
+        public System.DateTime date { get; set; }
         public Nullable<int> start_time { get; set; }
         public Nullable<int> end_time { get; set; }
+
+        public List<employee> employees { get; set; }
+
     }
 }

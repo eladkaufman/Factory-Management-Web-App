@@ -10,11 +10,9 @@ async function addDepartment() {
     headers: { "Content-Type": "application/json" },
   };
 
-  let resp = await fetch(
-    "https://localhost:44387/api/Department/",
-    fetchparams
-  );
+  let resp = await fetch("http://localhost:65180/api/Department/", fetchparams);
   let data = await resp.json();
+  decActions();
   alert(data);
-  window.location.href = "department.html";
+  window.location.href = "departmentMain.html";
 }

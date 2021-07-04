@@ -5,11 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employees Main</title>
-    <link rel="stylesheet" href="employeeMain.css" />
+    <script defer src="../shared.js"></script>
     <script defer src="employeeMain.js"></script>
   </head>
 
   <body onload="getEmployees()">
+    <h1>Employees</h1>
+
+    <input type="text" id="searchTxt" placeholder="Search Employee" /><br />
+    <input type="radio" id="fname" name="search" value="fName" />
+      <label for="fname">First Name</label>
+    <input type="radio" id="lname" name="search" value="lName" />
+      <label for="lname">Last Name</label>
+    <input type="radio" id="dep" name="search" value="departmentName" />
+      <label for="dep">Department</label>
+    <br />
+
+    <input
+      type="button"
+      id="searchbtn"
+      value="Search"
+      onclick="searchEmployee()"
+    />
+
+    <br />
+    <br />
     <table border="1" id="tbl">
       <th>ID</th>
       <th>First Name</th>
@@ -21,7 +41,7 @@
       <th>Edit</th>
       <th>Delete</th>
     </table>
-    <br /><br />
-    <a href="addEmployee.html">Add a Department</a>
+    <br />
+    <a href="../home/homePage.html">Home</a>
   </body>
 </html>

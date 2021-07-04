@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
+
+
 namespace factory
 {
     public static class WebApiConfig
@@ -18,7 +20,9 @@ namespace factory
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+
             );
         }
+
     }
 }

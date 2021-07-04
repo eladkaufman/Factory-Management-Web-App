@@ -15,6 +15,6 @@ namespace factory.Models
         public string departmentName { get; set; }
 
         public Boolean isManager { get; set; }
-        public List<shiftDateFormated> shifts { get; set; }
+        public List<shift> shifts { get; set; }
     }
 }

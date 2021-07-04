@@ -1,5 +1,6 @@
 async function getDepartments() {
-  let resp = await fetch("https://localhost:44387/api/Department/");
+  genHeader();
+  let resp = await fetch("http://localhost:65180/api/Department/");
   let data = await resp.json();
   data.forEach((dep) => {
     let idEl = document.createElement("td");
@@ -35,6 +36,7 @@ async function getDepartments() {
       delbutton.onclick = function () {
         deleteDepartment(dep.ID);
         deleteRow(this);
+        decActions();
       };
 
       delTdlEl.appendChild(delbutton);
@@ -52,7 +54,7 @@ async function deleteDepartment(id) {
   };
 
   let resp = await fetch(
-    "https://localhost:44387/api/Department/" + id,
+    "http://localhost:65180/api/Department/" + id,
     fetchparams
   );
   let data = await resp.json();
@@ -67,5 +69,3 @@ function deleteRow(btn) {
   var row = btn.parentNode.parentNode;
   row.parentNode.removeChild(row);
 }
-
-

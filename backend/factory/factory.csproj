@@ -172,6 +172,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ShiftController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -208,7 +209,8 @@
     <Compile Include="Models\shift.cs">
       <DependentUpon>factoryProject.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\shiftDateFormated.cs" />
+    <Compile Include="Models\ShiftBL.cs" />
+    <Compile Include="Models\shiftWithEmpList.cs" />
     <Compile Include="Models\user.cs">
       <DependentUpon>factoryProject.tt</DependentUpon>
     </Compile>
@@ -333,9 +335,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59797</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44387/</IISUrl>
+          <IISUrl>http://localhost:65180/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -23,7 +23,7 @@ namespace factory.Models
                 empExt.departmentID = emp.departmentID;
                 empExt.departmentName = db.department.Where(dep => dep.ID == emp.departmentID).First().name;
                 empExt.isManager = db.department.Where(dep => dep.ID == emp.departmentID).First().manager == emp.ID;
-                empExt.shifts = new List<shiftDateFormated>();
+                empExt.shifts = new List<shift>();
 
                 foreach (var empSh in db.employeeShift)
                 {
@@ -33,13 +33,13 @@ namespace factory.Models
                         {
                             if (empSh.shiftID == sh.ID)
                             {
-                                shiftDateFormated fShift = new shiftDateFormated();
-                                fShift.ID = sh.ID;
-                                fShift.date = sh.date.ToString("dd/MM/yyyy");
-                                fShift.start_time = sh.start_time;
-                                fShift.end_time = sh.end_time;
+                                //shiftDateFormated fShift = new shiftDateFormated();
+                                //fShift.ID = sh.ID;
+                                //fShift.date = sh.date.ToString("dd/MM/yyyy");
+                                //fShift.start_time = sh.start_time;
+                                //fShift.end_time = sh.end_time;
 
-                                empExt.shifts.Add(fShift);
+                                empExt.shifts.Add(sh);
                             }
                         }
                     }
@@ -57,6 +57,16 @@ namespace factory.Models
             return found;
 
         }
+        public void EditEmployee(int id, employee emp)
+        {
+            employee chosenEmp = db.employee.Where(x => x.ID == id).First();
+            chosenEmp.fName = emp.fName;
+            chosenEmp.lName = emp.lName;
+            chosenEmp.startWorkYear = emp.startWorkYear;
+            chosenEmp.departmentID = emp.departmentID;
+
+            db.SaveChanges();
+        }
 
         public void Delete(int id)
         {
@@ -67,6 +77,11 @@ namespace factory.Models
 
 
 
+        }
+        public void AddShiftToEmp(employeeShift empShft)
+        {
+            db.employeeShift.Add(empShft);
+            db.SaveChanges();
         }
     }
 }

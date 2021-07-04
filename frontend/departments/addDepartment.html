@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Department</title>
-    <link rel="stylesheet" href="department.css" />
-    <script defer src="department.js"></script>
+    <link rel="stylesheet" href="departmentMain.css" />
+    <script defer src="../shared.js"></script>
+    <script defer src="departmentMain.js"></script>
     <script defer src="addDepartment.js"></script>
   </head>
-  <body>
+  <body onload="genHeader()">
+    <h1>Add a Department</h1>
     Name: <input type="text" id="name" /> <br />
     Manager: <input type="text" id="man" /> <br />
     <input type="button" value="Add" onclick="addDepartment()" />
-    <a href="department.html">Back</a>
+    <a href="departmentMain.html">Back</a>
   </body>
 </html>

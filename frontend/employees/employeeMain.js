@@ -1,6 +1,11 @@
 async function getEmployees() {
-  const resp = await fetch("https://localhost:44387/api/Employee/");
+  genHeader();
+  const resp = await fetch("http://localhost:65180/api/Employee/");
   const data = await resp.json();
+  buildTable(data);
+}
+
+function buildTable(data) {
   data.forEach((emp) => {
     const idEl = document.createElement("td");
     const fnameEl = document.createElement("td");
@@ -23,9 +28,21 @@ async function getEmployees() {
     const ulEl = document.createElement("ul");
     emp.shifts.forEach((shift) => {
       let liEl = document.createElement("li");
-      liEl.innerText = `${shift.date}: ${shift.start_time} to ${shift.end_time}`;
+      //changing the date format to local style
+      let dateObj = new Date(shift.date);
+
+      liEl.innerText = `${dateObj.toLocaleString().split(",")[0]}: ${
+        shift.start_time
+      } to ${shift.end_time}`;
       ulEl.appendChild(liEl);
     });
+    let liLinkEl = document.createElement("li");
+    let linkEl = document.createElement("a");
+    linkEl.href = "addShiftToEmp.html?empid=" + emp.ID;
+    linkEl.innerText = "Add shift";
+    liLinkEl.appendChild(linkEl);
+    ulEl.appendChild(liLinkEl);
+
     shitsEl.appendChild(ulEl);
     trEl.appendChild(idEl);
     trEl.appendChild(fnameEl);
@@ -51,8 +68,10 @@ async function getEmployees() {
     delbutton.value = "Delete";
 
     delbutton.onclick = function () {
+      deleteEmpShifts(emp.ID);
       deleteEmployee(emp.ID);
       deleteRow(this);
+      decActions();
     };
 
     delTdlEl.appendChild(delbutton);
@@ -63,13 +82,26 @@ async function getEmployees() {
   });
 }
 
-async function deleteDepartment(id) {
+async function deleteEmpShifts(id) {
   const fetchparams = {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   };
   const resp = await fetch(
-    "https://localhost:44387/api/Employee/" + id,
+    "http://localhost:65180/api/Shift/" + id,
+    fetchparams
+  );
+  const data = resp.json();
+  console.log(data);
+}
+
+async function deleteEmployee(id) {
+  const fetchparams = {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  };
+  const resp = await fetch(
+    "http://localhost:65180/api/Employee/" + id,
     fetchparams
   );
   const data = resp.json();
@@ -82,4 +114,54 @@ function removeRow(rowId) {
 function deleteRow(btn) {
   var row = btn.parentNode.parentNode;
   row.parentNode.removeChild(row);
+}
+
+function searchEmployee() {
+  const txtErr = "Type Somthing!";
+  const fieldErr = "Please choose a search field";
+  let searchField;
+  let searchVal = document.getElementById("searchTxt").value;
+
+  let radioValid = false;
+  if (document.getElementById("fname").checked) {
+    radioValid = true;
+    searchField = document.getElementById("fname").value;
+  } else if (document.getElementById("lname").checked) {
+    radioValid = true;
+    searchField = document.getElementById("lname").value;
+  } else if (document.getElementById("dep").checked) {
+    radioValid = true;
+    searchField = document.getElementById("dep").value;
+  }
+  if (!radioValid || searchVal == "") {
+    let alertMsg =
+      !radioValid && searchVal == ""
+        ? txtErr + "\n" + fieldErr
+        : radioValid && searchVal == ""
+        ? txtErr
+        : fieldErr;
+    alert(alertMsg);
+  } else {
+    sessionStorage.setItem("searchField", searchField);
+    sessionStorage.setItem("searchVal", searchVal);
+    window.location.href = "searchResults.html";
+  }
+}
+
+async function getSearchRes() {
+  genHeader();
+  let field = sessionStorage.getItem("searchField");
+  let val = sessionStorage.getItem("searchVal");
+
+  const resp = await fetch("http://localhost:65180/api/Employee/");
+  const data = await resp.json();
+  let fData = [];
+  data.forEach((emp) => {
+    if (emp[field] == val) {
+      fData.push(emp);
+    }
+  });
+  console.table(fData);
+  buildTable(fData);
+  decActions();
 }

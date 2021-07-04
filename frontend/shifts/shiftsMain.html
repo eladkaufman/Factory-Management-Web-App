@@ -6,25 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Results</title>
     <script defer src="../shared.js"></script>
-    <script defer src="employeeMain.js"></script>
+    <script defer src="shifts.js"></script>
   </head>
 
-  <body onload="getSearchRes()">
-    <h2>Search Results</h2>
-    <br />
-    <br />
+  <body onload="getshifts()">
+    <h1>Shifts</h1>
+
     <table border="1" id="tbl">
       <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Work Start Date</th>
-      <th>Department</th>
-      <th>Manager</th>
-      <th>Shifts</th>
-      <th>Edit</th>
-      <th>Delete</th>
+      <th>Date</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Employees</th>
     </table>
     <br /><br />
-    <a href="employeesMain.html">Back</a>
+    <a href="addShift.html">Add Shift</a>
   </body>
 </html>

@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <!-- <link rel="stylesheet" href="department.css" /> -->
+    <script defer src="shared.js"></script>
     <script defer src="login.js"></script>
   </head>
 
-  <body >
+  <body>
     <h1>Login</h1>
     <label for="uName">User Name : </label>
-    <input type="text" id="uNameIn" name="uName"> <br>
-    
+    <input type="text" id="uNameIn" name="uName" /> <br />
+
     <label for="upassword">Password : </label>
-    <input type="text" id="upasswordIn" name="upassword"> <br>
+    <input type="text" id="upasswordIn" name="upassword" /> <br />
 
-    <input type="button" value="Login" onclick="auth()">
+    <input type="button" value="Login" onclick="auth()" /><br />
 
+    <div id="err" style="color: red" hidden>
+      sorry 😓 You exceeded your allowed actions for today. Please log-in again
+      tommorow! 🙏
+    </div>
   </body>
 </html>

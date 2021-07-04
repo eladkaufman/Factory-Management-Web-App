@@ -27,13 +27,17 @@ namespace factory.Controllers
         }
 
         // POST: api/Employee
-        public void Post([FromBody]string value)
+        public string Post(employeeShift empShft)
         {
+            bl.AddShiftToEmp(empShft);
+            return "Shift Added!";
         }
 
         // PUT: api/Employee/5
-        public void Put(int id, [FromBody]string value)
+        public string Put(int id, employee emp)
         {
+            bl.EditEmployee(id, emp);
+            return "Updated!";
         }
 
         // DELETE: api/Employee/5

@@ -22,14 +22,15 @@ namespace factory.Controllers
         }
 
         // GET: api/Login/5
-        public string Get(int id)
+
+        public user Get(int id)
         {
 
-            return "value";
+            return bl.GetUser(id);
         }
 
         // POST: api/Login
-        public bool Post(user user)
+        public int Post(user user)
         {
             return bl.IsUserExist(user.userName, user.password);
         }

@@ -5,7 +5,7 @@ function getDepId() {
 }
 
 async function getDepartment(id) {
-  let resp = await fetch("https://localhost:44387/api/Department/" + id);
+  let resp = await fetch("http://localhost:65180/api/Department/" + id);
   let data = await resp.json();
   console.log(typeof toString(data.ID));
   let dep = {
@@ -18,6 +18,7 @@ async function getDepartment(id) {
 }
 
 async function loadData() {
+  genHeader();
   let id = getDepId();
   let found = await getDepartment(id);
   document.getElementById("id").value = found.ID;
@@ -40,10 +41,11 @@ async function editDepartment() {
   };
 
   let resp = await fetch(
-    "https://localhost:44387/api/Department/" + id,
+    "http://localhost:65180/api/Department/" + id,
     fetchparams
   );
   let data = await resp.json();
+  decActions();
   alert(data);
-  window.location.href = "department.html";
+  window.location.href = "departmentMain.html";
 }

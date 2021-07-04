@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Shift</title>
+    <script defer src="../shared.js"></script>
+    <script defer src="shifts.js"></script>
+  </head>
+  <body onload="genHeader()">
+    <h1>Add Shift</h1>
+    Date: <input type="date" id="date" /> <br />
+    Start Time : <input type="text" id="sTime" /> <br />
+    End Time : <input type="text" id="eTime" /> <br />
+    <input type="button" value="Add" onclick="addShift()" />
+  </body>
+</html>

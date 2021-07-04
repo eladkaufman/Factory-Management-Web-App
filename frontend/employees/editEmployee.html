@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Employee</title>
-    <!-- <link rel="stylesheet" href="department.css" /> -->
-    <!-- <script defer src="department.js"></script> -->
+    <script defer src="../shared.js"></script>
     <script defer src="editEmployee.js"></script>
   </head>
   <body onload="loadData()">
+    <h1>Edit Employee</h1>
     ID: <input type="text" id="id" disabled /> <br />
     First Name: <input type="text" id="fname" /> <br />
     Last Name: <input type="text" id="lname" /> <br />
@@ -17,7 +17,7 @@
     Department:
     <select name="depCombo" id="depCombo"></select>
     <br />
-    <input type="button" value="Update" onclick="editDepartment()" />
+    <input type="button" value="Update" onclick="editEmployee()" />
     <a href="employeesMain.html">Back</a>
   </body>
 </html>

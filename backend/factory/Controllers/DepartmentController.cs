@@ -16,7 +16,7 @@ namespace factory.Controllers
          
         private static DepartmentBL bl = new DepartmentBL();
         // GET: api/Department
-        [HttpGet]
+  
         [Route("api/Department")]
         public List<departmentExt> Get()
         {
@@ -30,6 +30,8 @@ namespace factory.Controllers
             return bl.FindDepartment(id);
         }
 
+
+        [Route("api/Department")]
         // POST: api/Department
         [HttpPost]
         public string Post(department newDep)
