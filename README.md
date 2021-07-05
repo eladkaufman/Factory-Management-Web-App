@@ -19,4 +19,4 @@ The database was created using Microsost SQL Server Managemet Studio, scheme pro
 
 ## Pages flowchart
 
-![pages flowchart](/assets/pages_flowchart.JPG)
+![pages flowchart](/images/pages_flowchart.JPG)
