@@ -44,8 +44,6 @@ async function editDepartment() {
     "http://localhost:65180/api/Department/" + id,
     fetchparams
   );
-  let data = await resp.json();
   decActions();
-  alert(data);
   window.location.href = "departmentMain.html";
 }

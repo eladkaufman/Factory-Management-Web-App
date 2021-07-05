@@ -161,7 +161,13 @@ async function getSearchRes() {
       fData.push(emp);
     }
   });
-  console.table(fData);
-  buildTable(fData);
+  if (fData.length == 0) {
+    //No Results
+    document.getElementById("noRes").hidden = false;
+  } else {
+    document.getElementById("tbl").hidden = false;
+    buildTable(fData);
+  }
+
   decActions();
 }

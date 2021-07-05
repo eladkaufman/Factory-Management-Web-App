@@ -37,8 +37,9 @@ function getWithExpiry(key) {
 }
 
 function genHeader() {
-  if (!sessionStorage.getItem("loggedIn")) {
-    window.location.href = "login.html";
+  let data = sessionStorage.getItem("loggedIn");
+  if (data == "false") {
+    window.location.href = "../login.html";
   }
   document.getElementById("cont")?.remove();
 
@@ -79,9 +80,7 @@ function genHeader() {
 function decActions() {
   const key = sessionStorage.getItem("userName") + "actionNum";
   let curNum = getWithExpiry(key);
-  alert("currNum = " + curNum);
-  console.log(typeof curNum);
-  if (curNum == 1) {
+  if (curNum == 0) {
     // last action => Logout
     logOut();
   }
@@ -94,7 +93,6 @@ function decActions() {
   const itemStr = localStorage.getItem(key);
   const item = JSON.parse(itemStr);
   item.value = curNum - 1;
-  alert("item value = " + item.value);
   localStorage.setItem(key, JSON.stringify(item));
 
   // render header after update
@@ -103,11 +101,10 @@ function decActions() {
 
 function logOut() {
   //clear user data from DOM and
-  alert("logging out");
+
   sessionStorage.removeItem("fullName");
   sessionStorage.removeItem("userName");
   sessionStorage.removeItem("numOfAcion");
   sessionStorage.setItem("loggedIn", false);
   window.location.href = "../login.html";
-  return false;
 }

@@ -7,6 +7,11 @@
     <title>Add Shift to Employee</title>
     <script defer src="../shared.js"></script>
     <script defer src="addShiftToEmp.js"></script>
+    <style>
+      .hidden{
+        display: none;
+      }
+    </style>
   </head>
   <body onload="loadData()">
     <h1>Add a shift to Employee</h1>
@@ -18,6 +23,8 @@
 <table border="1" id= "tbl">
 <th>Date</th><th>Start Time</th><th>End Time</th>
 </table>
+<br>
+<div id="dupErr" style="color: red" class="hidden">This shift is already assigned to this employee</div>
 
 
     <a href="employeesMain.html">Back</a>

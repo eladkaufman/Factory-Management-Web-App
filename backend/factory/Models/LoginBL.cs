@@ -9,9 +9,9 @@ namespace factory.Models
     {
         factoryProjectDBEntities1 db = new factoryProjectDBEntities1();
 
-        public int IsUserExist(string userName, string password)
+        public int IsUserExist(string userName)
         {
-            var userFound = db.user.Where(user => user.userName == userName && user.password == password);
+            var userFound = db.user.Where(user => user.userName == userName);
             if (userFound.Count() > 0)
             {
                 return userFound.First().ID;

@@ -77,7 +77,11 @@ async function addShift() {
 
   let resp = await fetch("http://localhost:65180/api/Employee/", fetchparams);
   let data = await resp.json();
-  decActions();
-  alert(data);
-  window.location.href = "employeesMain.html";
+  if (data == "") {
+    //shift already assigned to this employee
+    document.getElementById("dupErr").classList.remove("hidden");
+  } else {
+    decActions();
+    window.location.href = "employeesMain.html";
+  }
 }

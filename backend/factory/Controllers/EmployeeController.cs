@@ -29,6 +29,10 @@ namespace factory.Controllers
         // POST: api/Employee
         public string Post(employeeShift empShft)
         {
+            if(bl.isExist(empShft))
+            {
+                return "";
+            }
             bl.AddShiftToEmp(empShft);
             return "Shift Added!";
         }

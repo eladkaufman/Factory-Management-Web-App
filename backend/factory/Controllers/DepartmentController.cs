@@ -36,6 +36,15 @@ namespace factory.Controllers
         [HttpPost]
         public string Post(department newDep)
         {
+            //check if department's name exist
+            List<departmentExt> allDeparments = bl.GetAllDepartments();
+            foreach(var dep in allDeparments)
+            {
+                if(dep.name == newDep.name)
+                {
+                    return "";
+                }
+            }
             bl.AddDepartment(newDep);
             return "Created!";
         }

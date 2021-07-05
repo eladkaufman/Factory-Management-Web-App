@@ -12,7 +12,11 @@ async function addDepartment() {
 
   let resp = await fetch("http://localhost:65180/api/Department/", fetchparams);
   let data = await resp.json();
-  decActions();
-  alert(data);
-  window.location.href = "departmentMain.html";
+  if (data == "") {
+    //department with the same name exist
+    document.getElementById("nameErr").classList.remove("hidden");
+  } else {
+    decActions();
+    window.location.href = "departmentMain.html";
+  }
 }

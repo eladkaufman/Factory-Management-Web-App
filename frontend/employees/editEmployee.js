@@ -61,8 +61,7 @@ async function editEmployee() {
     "http://localhost:65180/api/Employee/" + id,
     fetchparams
   );
-  let data = await resp.json();
   decActions();
-  alert(data);
-  // window.location.href = "employeesMain.html";
+
+  window.location.href = "employeesMain.html";
 }

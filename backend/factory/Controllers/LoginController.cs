@@ -32,7 +32,7 @@ namespace factory.Controllers
         // POST: api/Login
         public int Post(user user)
         {
-            return bl.IsUserExist(user.userName, user.password);
+            return bl.IsUserExist(user.userName);
         }
 
         // PUT: api/Login/5

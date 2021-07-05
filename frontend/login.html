@@ -8,6 +8,11 @@
     <!-- <link rel="stylesheet" href="department.css" /> -->
     <script defer src="shared.js"></script>
     <script defer src="login.js"></script>
+    <style>
+      .hidden{
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -20,9 +25,11 @@
 
     <input type="button" value="Login" onclick="auth()" /><br />
 
-    <div id="err" style="color: red" hidden>
+    <div id="exceedErr" style="color: red" hidden>
       sorry 😓 You exceeded your allowed actions for today. Please log-in again
       tommorow! 🙏
     </div>
+    <div id="userErr" style="color: red" class="hidden">User doesn't exist</div>
+    <div id="passErr" style="color: red" class="hidden">Password is not correct</div>
   </body>
 </html>

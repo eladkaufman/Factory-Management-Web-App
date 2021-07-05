@@ -33,11 +33,6 @@ namespace factory.Models
                         {
                             if (empSh.shiftID == sh.ID)
                             {
-                                //shiftDateFormated fShift = new shiftDateFormated();
-                                //fShift.ID = sh.ID;
-                                //fShift.date = sh.date.ToString("dd/MM/yyyy");
-                                //fShift.start_time = sh.start_time;
-                                //fShift.end_time = sh.end_time;
 
                                 empExt.shifts.Add(sh);
                             }
@@ -82,6 +77,17 @@ namespace factory.Models
         {
             db.employeeShift.Add(empShft);
             db.SaveChanges();
+        }
+        public bool isExist(employeeShift empShft)
+        {
+            foreach(var es in db.employeeShift)
+            {
+                if(es.employeeID ==empShft.employeeID && es.shiftID == empShft.shiftID)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

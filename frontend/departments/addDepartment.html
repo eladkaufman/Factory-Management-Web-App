@@ -9,12 +9,21 @@
     <script defer src="../shared.js"></script>
     <script defer src="departmentMain.js"></script>
     <script defer src="addDepartment.js"></script>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body onload="genHeader()">
     <h1>Add a Department</h1>
     Name: <input type="text" id="name" /> <br />
     Manager: <input type="text" id="man" /> <br />
-    <input type="button" value="Add" onclick="addDepartment()" />
+    <input type="button" value="Add" onclick="addDepartment()" /><br />
+    <div id="nameErr" style="color: red" class="hidden">
+      A department with the same name exist
+    </div>
+
     <a href="departmentMain.html">Back</a>
   </body>
 </html>
