@@ -29,6 +29,7 @@ namespace factory.Controllers
         {
             return bl.GetShiftsWithEmpList();
         }
+
         [Route("api/Shift")]
         // POST: api/Shift
         [HttpPost]
@@ -36,11 +37,6 @@ namespace factory.Controllers
         {
             bl.AddShift(newShift);
             return "Created!";
-        }
-
-        // PUT: api/Shift/5
-        public void Put(int id, [FromBody]string value)
-        {
         }
 
         // DELETE: api/Shift/5
