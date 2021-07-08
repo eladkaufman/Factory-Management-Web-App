@@ -16,6 +16,10 @@ The database was created using Microsost SQL Server Managemet Studio, scheme pro
 
 ## Database 
 
+## Architecture
+
+
+![architecture](/images/architecture.JPG)
 
 ## Pages flowchart
 
