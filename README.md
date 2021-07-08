@@ -6,7 +6,7 @@ This app is used to manage a factory.
 The factory has *departments*.  
 Each dapartment has *employees*.  
 The employees work in *shifts*.  
-*users* are presons who uses the app, and pre-defines in the system.
+*users* are presons who uses the app, and are pre-defines in the system.
 Each user has a maximun number of actions they can do in a day. When a user exceed is allowed actions for the day, the system throws them out to the log-in page, and they are banned for the rest of the day(no worries- they can log-in again the day after).
 
 ## Technolegies in use
@@ -16,8 +16,9 @@ The database was created using Microsost SQL Server Managemet Studio, scheme pro
 
 ## Database 
 
-## Architecture
+![database](/images/database.JPG)
 
+## Architecture
 
 ![architecture](/images/architecture.JPG)
 
